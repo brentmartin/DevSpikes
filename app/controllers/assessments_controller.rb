@@ -10,6 +10,7 @@ class AssessmentsController < ApplicationController
   # GET /assessments/1
   # GET /assessments/1.json
   def show
+    @questions = Question.all
   end
 
   # GET /assessments/new
@@ -69,6 +70,6 @@ class AssessmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def assessment_params
-      params.require(:assessment).permit(:title, :description)
+      params.require(:assessment).permit(:title, :description, :question)
     end
 end
