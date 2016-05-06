@@ -9,7 +9,6 @@
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:location) %></th>
       <th><%= model_class.human_attribute_name(:email) %></th>
-      <th><%= model_class.human_attribute_name(:password_digest) %></th>
       <th><%= model_class.human_attribute_name(:user_photo) %></th>
       <th><%= model_class.human_attribute_name(:registration) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
@@ -23,7 +22,6 @@
         <td><%= user.name %></td>
         <td><%= user.location %></td>
         <td><%= user.email %></td>
-        <td><%= user.password_digest %></td>
         <td><%= user.user_photo %></td>
         <td><%= user.registration %></td>
         <td><%=l user.created_at %></td>
