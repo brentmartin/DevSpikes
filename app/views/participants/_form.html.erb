@@ -1,13 +1,13 @@
-<%= form_for @survey, :html => { :class => "form-horizontal survey" } do |f| %>
+<%= form_for @participant, :html => { :class => "form-horizontal participant" } do |f| %>
 
-  <% if @survey.errors.any? %>
+  <% if @participant.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
       <div class="panel-heading">
-        <h3 class="panel-title"><%= pluralize(@survey.errors.count, "error") %> prohibited this survey from being saved:</h3>
+        <h3 class="panel-title"><%= pluralize(@participant.errors.count, "error") %> prohibited this participant from being saved:</h3>
       </div>
       <div class="panel-body">
         <ul>
-        <% @survey.errors.full_messages.each do |msg| %>
+        <% @participant.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
         </ul>
@@ -16,11 +16,11 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :message, :class => 'control-label col-lg-2' %>
+    <%= f.label :relation, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :message, :class => 'form-control' %>
+      <%= f.text_field :relation, :class => 'form-control' %>
     </div>
-    <%=f.error_span(:message) %>
+    <%=f.error_span(:relation) %>
   </div>
   <div class="form-group">
     <%= f.label :user_id, :class => 'control-label col-lg-2' %>
@@ -30,18 +30,18 @@
     <%=f.error_span(:user_id) %>
   </div>
   <div class="form-group">
-    <%= f.label :assessment_id, :class => 'control-label col-lg-2' %>
+    <%= f.label :survey_id, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :assessment_id, :class => 'form-control' %>
+      <%= f.text_field :survey_id, :class => 'form-control' %>
     </div>
-    <%=f.error_span(:assessment_id) %>
+    <%=f.error_span(:survey_id) %>
   </div>
 
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
       <%= f.submit nil, :class => 'btn btn-primary' %>
       <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                surveys_path, :class => 'btn btn-default' %>
+                participants_path, :class => 'btn btn-default' %>
     </div>
   </div>
 
