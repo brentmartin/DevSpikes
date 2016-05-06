@@ -3,8 +3,6 @@ class CreateAssessments < ActiveRecord::Migration
     create_table :assessments do |t|
       t.string :title
       t.string :description
-      t.string :question
-      t.float :answer
 
       t.timestamps null: false
     end

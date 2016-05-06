@@ -16,8 +16,6 @@ ActiveRecord::Schema.define(version: 20160506021405) do
   create_table "assessments", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
-    t.string   "question"
-    t.float    "answer"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

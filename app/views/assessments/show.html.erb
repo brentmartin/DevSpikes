@@ -8,10 +8,6 @@
   <dd><%= @assessment.title %></dd>
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
   <dd><%= @assessment.description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:question) %>:</strong></dt>
-  <dd><%= @assessment.question %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:answer) %>:</strong></dt>
-  <dd><%= @assessment.answer %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
