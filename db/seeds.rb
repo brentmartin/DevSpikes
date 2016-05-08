@@ -8,14 +8,48 @@
 
 
 
-Question.create(text: "How well does person set realistic goals on projects?")
-
-
-example_question = [
-"How well does person set realistic goals on projects?",
-"Does person execute on items within set timeframes?"
+planned_questions_one = [
+  "How well does person set realistic goals on projects?",
+  "Does person execute on items within set timeframes?",
+  "How funny is person?",
+  "Do people enjoy being around person?",
+  "Does person express their points clearly when explaining things?",
+  "Do the emails you have received from person communicate points accurately?",
+  "If person took an IQ test, what do you think they would score?",
+  "How intelligent do you think person is?",
+  "How often does person collaborate with others to get tasks done?",
+  "How often does person ask for feedback on projects?",
+  "How willing is person to re-evaluate work they've done based on feedback?",
+  "How well does person recognize the skills of those whom they work with?",
+  "How well does person receive and learn from feedback given by bosses and peers?",
+  "How often does person turn to people in different industries for professional advice?",
+  "On average, how often do you feel like person felt qualified to speak about subjects related to them?",
+  "How often does said person identify and solve a problem?"
 ]
 
-example_question.each do |q|
-  Question.create(text: q)
+Assessment.create(title:"DKE/IS Litmus Test",
+          description: "This test is a double blind, anonymous test in which I explain how it is both below.
+
+          In answering these questions, I would like you to be as brutally honest as possible. The more honesty, the more constructive feedback.
+
+          What this is testing?
+          This is testing the balance between Imposter Syndrome and the Dunnin-Kruger effect. If you are aware of these concepts then awesome! If you aren't then please spend 30 seconds reading on each
+
+          Why I am doing this?
+          Many believe that the best way to evaluate where you are in this balance is to turn to trusted peers for feedback. But there is a lack of resources to easily do that. Eventually, I would like to turn this process into something that people can easily do online. I would also like the feedback for myself too :)
+
+          How is this double blind?
+          I will be taking this assessment on myself. And you will be taking this assessment on me. Neither of us will take this assessment with any knowledge of the others answers.
+
+          How do the participants stay anonymous and why?
+          The why is easy - I want the feedback to be as pure and unbiased as possible. The only way for me to do so is to never see individual results, rather to see averages. In
+
+          If you have any feedback on the questions choosen PLEASE leave them in the comment box below. This is only my first pass at sample questions, many iterations and revisions will need to be done before this is viable.",
+          id: 1
+  )
+
+planned_questions_one.each do |q|
+  Question.create(text: q, assessment_id: 1)
 end
+
+#### random seed data #####
