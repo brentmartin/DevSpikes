@@ -12,6 +12,14 @@
   <dd><%= @survey.assessment_id %></dd>
 </dl>
 
+<dl class="dl-horizontal">
+  <% @survey.assessment.questions.each do |question| %>
+  <dt><strong>Question: </strong></dt>
+  <dd><%= question.text %></dd>
+  <% end %>
+</dl>
+
+
 <%= link_to t('.back', :default => t("helpers.links.back")),
               surveys_path, :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),

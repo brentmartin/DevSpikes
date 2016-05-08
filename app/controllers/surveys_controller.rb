@@ -10,6 +10,10 @@ class SurveysController < ApplicationController
   # GET /surveys/1
   # GET /surveys/1.json
   def show
+    @questions = Question.all
+    @evaluations = Evaluation.all
+    @participants = Participant.all
+    @responses = Response.all
   end
 
   # GET /surveys/new
