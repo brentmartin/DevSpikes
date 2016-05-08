@@ -27,7 +27,7 @@ planned_questions_one = [
   "How often does said person identify and solve a problem?"
 ]
 
-Assessment.create(title:"DKE/IS Litmus Test",
+Assessment.create(title: "DKE/IS Litmus Test",
           description: "This test is a double blind, anonymous test in which I explain how it is both below.
 
           In answering these questions, I would like you to be as brutally honest as possible. The more honesty, the more constructive feedback.
@@ -53,3 +53,13 @@ planned_questions_one.each do |q|
 end
 
 #### random seed data #####
+
+4.times do |n|
+  Assessment.create(title:Faker::Name.title, description:Faker::Company.catch_phrase)
+end
+
+Assessment.all.each do |id|
+  15.times do |id|
+    Question.create(text:Faker::Company.bs, assessment_id: id)
+  end
+end
