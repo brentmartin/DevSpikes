@@ -14,6 +14,30 @@
   <dd><%= @evaluation.survey_id %></dd>
 </dl>
 
+
+<dl class="dl-horizontal">
+  <div>
+    <dt><strong>Survey Question:</strong></dt>
+    <dd><%= @evaluation.question.text %></dd>
+  </div>
+
+  <div>
+    <dt><strong>Response:</strong></dt>
+    <dd>
+      <span>1</span>
+      <input type="radio" name="answers" value= 1>
+      <span style="padding-left:1em;">2</span>
+      <input type="radio" name="answers" value= 2>
+      <span style="padding-left:1em;">3</span>
+      <input type="radio" name="answers" value= 3>
+      <span style="padding-left:1em;">4</span>
+      <input type="radio" name="answers" value= 4>
+      <span style="padding-left:1em;">5</span>
+      <input type="radio" name="answers" value= 5>
+    </dd>
+  </div>
+</dl>
+
 <%= link_to t('.back', :default => t("helpers.links.back")),
               evaluations_path, :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),

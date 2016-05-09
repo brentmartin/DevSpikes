@@ -67,7 +67,7 @@ end
 ######## NOTE: User seeds #########
 
 5.times do
-  4.times do
+  10.times do
     registered_user = User.create(name:Faker::Name.name, location:Faker::Address.city + ", " + Faker::Address.state_abbr, email:Faker::Internet.domain_word + "@example.com", password: "password",  registration:true)
   end
   # 20.times do
