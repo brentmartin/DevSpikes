@@ -7,7 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-
 planned_questions_one = [
   "How well does person set realistic goals on projects?",
   "Does person execute on items within set timeframes?",
@@ -52,14 +51,52 @@ planned_questions_one.each do |q|
   Question.create(text: q, assessment_id: 1)
 end
 
+#### ####
+
+
+
+
+
+
+
+
+
+
 #### random seed data #####
 
+######## NOTE: User seeds #########
+
+5.times do
+  4.times do
+    registered_user = User.create(name:Faker::Name.name, location:Faker::Address.city + ", " + Faker::Address.state_abbr, email:Faker::Internet.domain_word + "@example.com", password: "password",  registration:true)
+  end
+  # 20.times do
+  #   unregistered_email = User.create(email:Faker::Internet.domain_word + "@example.com")
+  # end
+  # 10.times do
+  #   unregistered_name_email = User.create(name:Faker::Name.name, email:Faker::Internet.domain_word + "@example.com")
+  # end
+end
+
+######## NOTE: Assessment seeds #########
 4.times do |n|
   Assessment.create(title:Faker::Name.title, description:Faker::Company.catch_phrase)
 end
 
+######## NOTE: Questions seed #########
 Assessment.all.each do |id|
   15.times do |id|
-    Question.create(text:Faker::Company.bs, assessment_id: id)
+    Question.create(text:Faker::Company.bs + "?", assessment_id: id)
   end
 end
+
+######## NOTE: Surveys seeds #########
+
+
+######## NOTE: Evaluations seeds #########
+
+
+######## NOTE: Responses seeds #########
+
+
+######## NOTE: Participants seeds #########
