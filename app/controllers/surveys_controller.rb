@@ -32,6 +32,9 @@ class SurveysController < ApplicationController
 
     respond_to do |format|
       if @survey.save
+        @survey.assessment.questions.each do |question|
+          Evaluation.create(survey_id: @survey.id, question_id: question.id, completion:false)
+        end
         format.html { redirect_to @survey, notice: 'Survey was successfully created.' }
         format.json { render :show, status: :created, location: @survey }
       else
