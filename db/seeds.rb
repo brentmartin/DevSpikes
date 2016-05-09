@@ -92,7 +92,13 @@ end
 
 ######## NOTE: Surveys seeds #########
 User.count.times do
-  Survey.create(message: Faker::Hipster.paragraph(rand(2..5)), user_id: rand(1..User.count), assessment_id: rand(1..Assessment.count))
+  @survey = Survey.new(message: Faker::Hipster.paragraph(rand(2..5)), user_id: rand(1..User.count), assessment_id: rand(1..Assessment.count))
+  @survey.save
+  if @survey.save
+    @survey.assessment.questions.each do |question|
+      Evaluation.create(survey_id: @survey.id, question_id: question.id, completion:false)
+    end
+  end
 end
 
 ######## NOTE: Evaluations seeds #########
