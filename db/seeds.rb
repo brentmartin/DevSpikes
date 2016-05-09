@@ -91,7 +91,9 @@ Assessment.all.each do |id|
 end
 
 ######## NOTE: Surveys seeds #########
-
+User.count.times do
+  Survey.create(message: Faker::Hipster.paragraph(rand(2..5)), user_id: rand(1..User.count), assessment_id: rand(1..Assessment.count))
+end
 
 ######## NOTE: Evaluations seeds #########
 
