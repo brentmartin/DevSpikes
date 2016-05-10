@@ -10,10 +10,6 @@ class SurveysController < ApplicationController
   # GET /surveys/1
   # GET /surveys/1.json
   def show
-    @questions = Question.all
-    @evaluations = Evaluation.all
-    @participants = Participant.all
-    @responses = Response.all
   end
 
   # GET /surveys/new
@@ -47,9 +43,7 @@ class SurveysController < ApplicationController
   # PATCH/PUT /surveys/1
   # PATCH/PUT /surveys/1.json
   def update
-    @survey = Survey.update
-    @survey.evaluations
-    @survey.participants
+    @survey = Survey.find(params[:id])
 
     respond_to do |format|
       if @survey.update(survey_params)
@@ -78,17 +72,8 @@ class SurveysController < ApplicationController
       @survey = Survey.find(params[:id])
     end
 
-    def set_evaluation
-      @evaluation = Evaluation.find(params[:id])
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def survey_params
-      params.require(:survey).permit(:message, :user_id, :assessment_id, :answer)
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def evaluation_params
-      params.require(:evaluation).permit(:answer, :completion, :question_id, :survey_id)
+      params.require(:survey).permit(:message, :user_id, :assessment_id, evaluations_attributes:[:id, :answer, :completion, :question_id, :survey_id])
     end
 end

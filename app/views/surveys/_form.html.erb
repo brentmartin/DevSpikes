@@ -15,6 +15,31 @@
     </div>
   <% end %>
 
+  <dl class="dl-horizontal">
+    <%= f.fields_for :evaluations do |builder| %>
+      <dt><h2>Question </h2></dt>
+      <dd><p><%= builder.object.question.text %></p></dd>
+      <dt><h5>Response </h5></dt>
+      <dd>
+          <%= builder.label :answer, "1" %>
+          <%= builder.radio_button :answer, 1.0 %>
+          <span class="radio_span"></span>
+          <%= builder.label :answer, "2"%>
+          <%= builder.radio_button :answer, 2.0 %>
+          <span class="radio_span"></span>
+          <%= builder.label :answer, "3" %>
+          <%= builder.radio_button :answer, 3.0 %>
+          <span class="radio_span"></span>
+          <%= builder.label :answer, "4" %>
+          <%= builder.radio_button :answer, 4.0 %>
+          <span class="radio_span"></span>
+          <%= builder.label :answer, "5" %>
+          <%= builder.radio_button :answer, 5.0 %>
+      </dd>
+      <span style="padding: 1em; margin: 1em;"></span>
+    <% end %>
+  </dl>
+
   <div class="form-group">
     <%= f.label :message, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
@@ -36,31 +61,6 @@
     </div>
     <%=f.error_span(:assessment_id) %>
   </div>
-
-  <%= f.fields_for :evaluations do |builder| %>
-    <dl class="dl-horizontal">
-      <dt><h2>Question </h2></dt>
-      <dd><p><%= builder.object.question.text %></p></dd>
-      <dt><h5>Response </h5></dt>
-      <span style="padding: 1em; margin: 1em;"></span>
-    </dl>
-    <fieldset>
-      <%= builder.label :answer, "1" %>
-      <%= builder.radio_button :answer, 1.0 %>
-      <br/>
-      <%= builder.label :answer, "2"%>
-      <%= builder.radio_button :answer, 2.0 %>
-      <br/>
-      <%= builder.label :answer, "3" %>
-      <%= builder.radio_button :answer, 3.0 %>
-      <br/>
-      <%= builder.label :answer, "4" %>
-      <%= builder.radio_button :answer, 4.0 %>
-      <br/>
-      <%= builder.label :answer, "5" %>
-      <%= builder.radio_button :answer, 5.0 %>
-    </fieldset>
-  <% end %>
 
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">

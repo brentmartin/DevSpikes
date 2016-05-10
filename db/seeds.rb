@@ -51,6 +51,17 @@ planned_questions_one.each do |q|
   Question.create(text: q, assessment_id: 1)
 end
 
+User.create(name: "Brent Martin", location: "Austin, Tx", email: "brent@example.com", password: "password",  registration:true)
+
+User.count.times do
+  @survey = Survey.new(message: "In answering these questions, I would like you to be as brutally honest as possible. The more honesty, the more constructive feedback.", user_id: 1, assessment_id: 1)
+  @survey.save
+  if @survey.save
+    @survey.assessment.questions.each do |question|
+      Evaluation.create(survey_id: @survey.id, question_id: question.id, completion:false)
+    end
+  end
+end
 #### ####
 
 
