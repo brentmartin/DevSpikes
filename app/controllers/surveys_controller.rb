@@ -47,6 +47,8 @@ class SurveysController < ApplicationController
   # PATCH/PUT /surveys/1
   # PATCH/PUT /surveys/1.json
   def update
+
+
     respond_to do |format|
       if @survey.update(survey_params)
         format.html { redirect_to @survey, notice: 'Survey was successfully updated.' }
@@ -72,6 +74,10 @@ class SurveysController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_survey
       @survey = Survey.find(params[:id])
+    end
+
+    def set_evaluation
+      @evaluation = Evaluation.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

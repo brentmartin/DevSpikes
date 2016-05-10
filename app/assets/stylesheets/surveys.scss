@@ -1,3 +1,120 @@
 // Place all the styles related to the surveys controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300);
+@import url(https://fonts.googleapis.com/css?family=Hind:400,300);
+
+$color: rgba(white, 0.5);
+
+html {
+  background: url(https://source.unsplash.com/jLwVAUtLOAQ/1600x900) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-color: transparentize($color, 0.05);
+}
+
+.dt {
+  padding-top: 1em;
+}
+
+.radio_span {
+  font-family: 'Hind', sans-serif;
+  color: #3f3f3f;
+  padding: 0;
+  margin-left: 3em;
+  font-weight: 400;
+}
+
+div.navbar.navbar-default.navbar-static-top {
+  position: fixed;
+  width: 100%;
+}
+
+
+div.well.sidebar-nav {
+  position: fixed;
+  width: 250px;
+  top: 100px;
+}
+
+div.col-lg-9 {
+  top: 80px;
+}
+
+div.other_row well.sidebar-nav {
+  top: 300px;
+}
+
+p {
+  color: #3f3f3f;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 2.5em;
+  line-height: 1.2em;
+  top: 1em;
+  text-shadow: 1px 1px 2em white;
+}
+
+span {
+  color: white;
+  font-family: 'Hind', sans-serif;
+  font-weight: 300;
+  font-size: 1.5em;
+  line-height: 1.2em;
+  padding:0 1em;
+}
+
+strong {
+  color: white;
+  font-family: 'Hind', sans-serif;
+  font-size: 1em;
+  line-height: 1.2em;
+  position: relative;
+  float: right;
+  text-align: right;
+}
+
+h1 {
+  display: inline;
+  color: white;
+  font-family: 'Hind', sans-serif;
+  font-size: 3em;
+  line-height: 1.2em;
+  clear: both;
+}
+
+h2 {
+  color: white;
+  font-family: 'Hind', sans-serif;
+  font-size: 2em;
+  line-height: 1.2em;
+  padding-top: 7px;
+}
+
+h4 {
+  color: #3f3f3f;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 1.5em;
+  line-height: 1.5em;
+  margin: 0;
+}
+
+h5 {
+  color: white;
+  font-family: 'Hind', sans-serif;
+  font-size: 2em;
+  line-height: 1.2em;
+  padding-top: 5px;
+}
+
+body {
+  background-color: inherit;
+}
+
+dd {
+  padding-top: 20px;
+}

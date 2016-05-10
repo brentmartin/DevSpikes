@@ -1,43 +1,122 @@
 <%- model_class = Survey -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+
+  <strong><%= model_class.human_attribute_name(:user_id) %>: <%= @survey.user_id %><span>|</span><%= model_class.human_attribute_name(:assessment_id) %>: <%= @survey.assessment_id %></strong>
 </div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:message) %>:</strong></dt>
-  <dd><%= @survey.message %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
-  <dd><%= @survey.user_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:assessment_id) %>:</strong></dt>
-  <dd><%= @survey.assessment_id %></dd>
+<dl class="dl-horizontal" style="margin-bottom: 100px;">
+  <dt><h5 style="padding-top: 10px;">Description</h5></dt>
+  <dd><h4><%= @survey.message %></h4></dd>
 </dl>
 
 <% @survey.assessment.questions.each do |question| %>
   <dl class="dl-horizontal">
-    <dt><strong>Survey Question: </strong></dt>
-    <dd><%= question.text %></dd>
-    <dt><strong>Response: </strong></dt>
+    <dt><h2>Question </h2></dt>
+    <dd><p><%= question.text %></p></dd>
+    <dt><h5>Response </h5></dt>
     <dd>
-      <span>1</span>
+      <span style="padding: 0; color: #3f3f3f; font-weight: 400;">1</span>
       <input type="radio" name="answers" value= 1>
-      <span style="padding-left:1em;">2</span>
+      <span class="radio_span">2</span>
       <input type="radio" name="answers" value= 2>
-      <span style="padding-left:1em;">3</span>
+      <span class="radio_span">3</span>
       <input type="radio" name="answers" value= 3>
-      <span style="padding-left:1em;">4</span>
+      <span class="radio_span">4</span>
       <input type="radio" name="answers" value= 4>
-      <span style="padding-left:1em;">5</span>
+      <span class="radio_span">5</span>
       <input type="radio" name="answers" value= 5>
     </dd>
+    <span style="padding: 1em; margin: 1em;"></span>
   </dl>
 <% end %>
 
-<%= link_to t('.back', :default => t("helpers.links.back")),
-              surveys_path, :class => 'btn btn-default'  %>
-<%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_survey_path(@survey), :class => 'btn btn-default' %>
-<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              survey_path(@survey),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-9">
+    </div>
+
+    <div class="col-lg-3">
+      <div class="well sidebar-nav" style="width: 280px; right: 76px; z-index: 2;">
+        <h3>Invite participants</h3>
+        <ul class="nav nav-list">
+          <li class="nav-header">enter email addresses below</li>
+          </br>
+          <li>
+            <form style="display: inline-block;">
+              <p style="float: left; font-size: 1em; margin-right: 20px; padding-top: 8px;">user1</p>
+              <input type="text" style="float: right; width: 180px;">
+            </form>
+          </li>
+          <li>
+            <form style="display: inline-block;">
+              <p style="float: left; font-size: 1em; margin-right: 20px; padding-top: 8px;">user2</p>
+              <input type="text" style="float: right; width: 180px;">
+            </form>
+          </li>
+          <li>
+            <form style="display: inline-block;">
+              <p style="float: left; font-size: 1em; margin-right: 20px; padding-top: 8px;">user3</p>
+              <input type="text" style="float: right; width: 180px;">
+            </form>
+          </li>
+          <li>
+            <form style="display: inline-block;">
+              <p style="float: left; font-size: 1em; margin-right: 20px; padding-top: 8px;">user4</p>
+              <input type="text" style="float: right; width: 180px;">
+            </form>
+          </li>
+          <li>
+            <form style="display: inline-block;">
+              <p style="float: left; font-size: 1em; margin-right: 20px; padding-top: 8px;">user5</p>
+              <input type="text" style="float: right; width: 180px;">
+            </form>
+          </li>
+          <li>
+            <form style="display: inline-block;">
+              <p style="float: left; font-size: 1em; margin-right: 20px; padding-top: 8px;">user6</p>
+              <input type="text" style="float: right; width: 180px;">
+            </form>
+          </li>
+          <li>
+            <form style="display: inline-block;">
+              <p style="float: left; font-size: 1em; margin-right: 20px; padding-top: 8px;">user7</p>
+              <input type="text" style="float: right; width: 180px;">
+            </form>
+          </li>
+          <li>
+            <form style="display: inline-block;">
+              <p style="float: left; font-size: 1em; margin-right: 20px; padding-top: 8px;">user8</p>
+              <input type="text" style="float: right; width: 180px;">
+            </form>
+          </li>
+          <li>
+            <form style="display: inline-block;">
+              <p style="float: left; font-size: 1em; margin-right: 20px; padding-top: 8px;">user9</p>
+              <input type="text" style="float: right; width: 180px;">
+            </form>
+          </li>
+          <li>
+            <form style="display: inline-block;">
+              <p style="float: left; font-size: 1em; margin-right: 12px; padding-top: 8px;">user10</p>
+              <input type="text" style="float: right; width: 180px;">
+            </form>
+          </li>
+        </ul>
+      </div><!--/.well -->
+
+      <div class="well sidebar-nav" style="width: 280px; top: 650px; right: 76px; z-index: 2;">
+        <%= link_to t('.back', :default => t("helpers.links.back")),
+                      surveys_path, :class => 'btn btn-default'  %>
+        <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_survey_path(@survey), :class => 'btn btn-default' %>
+        <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      survey_path(@survey),
+                      :method => 'delete',
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-danger' %>
+      </div><!--/.well -->
+    </div><!--/span-->
+  </div><!--/row-->
+</div> <!-- /container -->

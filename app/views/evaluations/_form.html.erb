@@ -16,32 +16,23 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :answer, :class => 'control-label col-lg-2' %>
+    <%= f.label :answer %><br />
     <div class="col-lg-10">
-      <%= f.text_field :answer, :class => 'form-control' %>
+      <%= f.label :answer, "1"%>
+      <%= f.radio_button :answer, 1.0 %>
+      <br/>
+      <%= f.label :answer, "2"%>
+      <%= f.radio_button :answer,  2.0 %>
+      <br/>
+      <%= f.label :answer, "3" %>
+      <%= f.radio_button :answer, 3.0 %>
+      <br/>
+      <%= f.label :answer, "4" %>
+      <%= f.radio_button :answer, 4.0 %>
+      <br/>
+      <%= f.label :answer, "5" %>
+      <%= f.radio_button :answer, 5.0 %>
     </div>
-    <%=f.error_span(:answer) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :completion, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :completion, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:completion) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :question_id, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :question_id, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:question_id) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :survey_id, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :survey_id, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:survey_id) %>
   </div>
 
   <div class="form-group">

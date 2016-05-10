@@ -90,7 +90,7 @@ Assessment.all.each do |id|
   end
 end
 
-######## NOTE: Surveys seeds #########
+######## NOTE: Surveys / Evaluations seeds #########
 User.count.times do
   @survey = Survey.new(message: Faker::Hipster.paragraph(rand(2..5)), user_id: rand(1..User.count), assessment_id: rand(1..Assessment.count))
   @survey.save
