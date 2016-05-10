@@ -10,27 +10,11 @@
   <dd><h4><%= @survey.message %></h4></dd>
 </dl>
 
-<% @survey.assessment.questions.each do |question| %>
-  <dl class="dl-horizontal">
-    <dt><h2>Question </h2></dt>
-    <dd><p><%= question.text %></p></dd>
-    <dt><h5>Response </h5></dt>
     <dd>
-      <span style="padding: 0; color: #3f3f3f; font-weight: 400;">1</span>
-      <input type="radio" name="answers" value= 1>
-      <span class="radio_span">2</span>
-      <input type="radio" name="answers" value= 2>
-      <span class="radio_span">3</span>
-      <input type="radio" name="answers" value= 3>
-      <span class="radio_span">4</span>
-      <input type="radio" name="answers" value= 4>
-      <span class="radio_span">5</span>
-      <input type="radio" name="answers" value= 5>
+      <%= form_for @survey do |f| %>
+        <%= render :partial => 'form', :locals => {:f => f} %>
+      <% end %>
     </dd>
-    <span style="padding: 1em; margin: 1em;"></span>
-  </dl>
-<% end %>
-
 
 <div class="container">
   <div class="row">

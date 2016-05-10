@@ -47,7 +47,9 @@ class SurveysController < ApplicationController
   # PATCH/PUT /surveys/1
   # PATCH/PUT /surveys/1.json
   def update
-
+    @survey = Survey.update
+    @survey.evaluations
+    @survey.participants
 
     respond_to do |format|
       if @survey.update(survey_params)
@@ -82,6 +84,11 @@ class SurveysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def survey_params
-      params.require(:survey).permit(:message, :user_id, :assessment_id)
+      params.require(:survey).permit(:message, :user_id, :assessment_id, :answer)
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def evaluation_params
+      params.require(:evaluation).permit(:answer, :completion, :question_id, :survey_id)
     end
 end
