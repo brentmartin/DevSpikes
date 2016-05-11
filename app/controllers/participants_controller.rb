@@ -28,6 +28,9 @@ class ParticipantsController < ApplicationController
 
     respond_to do |format|
       if @participant.save
+        @participant.survey.assessment.questions.each do |question|
+          Response.create(participant_id: @participant.id, question_id: question.id, completion:false)
+        end
         format.html { redirect_to @participant, notice: 'Participant was successfully created.' }
         format.json { render :show, status: :created, location: @participant }
       else
@@ -40,6 +43,8 @@ class ParticipantsController < ApplicationController
   # PATCH/PUT /participants/1
   # PATCH/PUT /participants/1.json
   def update
+    @participant = Participant.find(params[:id])
+
     respond_to do |format|
       if @participant.update(participant_params)
         format.html { redirect_to @participant, notice: 'Participant was successfully updated.' }
@@ -69,6 +74,6 @@ class ParticipantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def participant_params
-      params.require(:participant).permit(:relation, :user_id, :survey_id)
+      params.require(:participant).permit(:relation, :user_id, :survey_id, responses_attributes:[:id, :answer, :completion, :question_id, :participant_id])
     end
 end
