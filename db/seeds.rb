@@ -110,9 +110,6 @@ User.count.times do
   end
 end
 
-
-
-
 ######## NOTE: Participants seeds #########
 ######## NOTE: Responses seeds #########
 Survey.all.each do |survey|

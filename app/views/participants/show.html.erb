@@ -33,6 +33,9 @@
   </dl>
 <% end %>
 
+<%= form_for @participant do |f| %>
+  <%= render :partial => 'form', :locals => {:f => f} %>
+<% end %>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
               participants_path, :class => 'btn btn-default'  %>

@@ -15,6 +15,34 @@
     </div>
   <% end %>
 
+
+  <dl class="dl-horizontal">
+    <%= f.fields_for :responses do |builder| %>
+      <dt><h2>Question </h2></dt>
+      <% binding.pry %>
+      <dd><p><%= builder.object.question.text %></p></dd>
+      <dt><h5>Response </h5></dt>
+      <dd>
+          <%= builder.label :answer, "1" %>
+          <%= builder.radio_button :answer, 1.0 %>
+          <span class="radio_span"></span>
+          <%= builder.label :answer, "2"%>
+          <%= builder.radio_button :answer, 2.0 %>
+          <span class="radio_span"></span>
+          <%= builder.label :answer, "3" %>
+          <%= builder.radio_button :answer, 3.0 %>
+          <span class="radio_span"></span>
+          <%= builder.label :answer, "4" %>
+          <%= builder.radio_button :answer, 4.0 %>
+          <span class="radio_span"></span>
+          <%= builder.label :answer, "5" %>
+          <%= builder.radio_button :answer, 5.0 %>
+      </dd>
+      <span style="padding: 1em; margin: 1em;"></span>
+    <% end %>
+  </dl>
+
+
   <div class="form-group">
     <%= f.label :relation, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
