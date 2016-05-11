@@ -19,7 +19,6 @@
   <dl class="dl-horizontal">
     <%= f.fields_for :responses do |builder| %>
       <dt><h2>Question </h2></dt>
-      <% binding.pry %>
       <dd><p><%= builder.object.question.text %></p></dd>
       <dt><h5>Response </h5></dt>
       <dd>
