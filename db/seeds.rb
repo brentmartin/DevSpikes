@@ -90,18 +90,16 @@ end
 end
 
 ######## NOTE: Assessment seeds #########
-4.times do |n|
-  Assessment.create(title:Faker::Name.title, description:Faker::Company.catch_phrase)
-end
-
 ######## NOTE: Questions seed #########
-Assessment.all.each do |id|
-  15.times do |id|
-    Question.create(text:Faker::Company.bs + "?", assessment_id: id)
+4.times do
+  assess = Assessment.create(title:Faker::Name.title, description:Faker::Company.catch_phrase)
+  15.times do
+    Question.create(text:Faker::Company.bs + "?", assessment_id: assess.id)
   end
 end
 
-######## NOTE: Surveys / Evaluations seeds #########
+######## NOTE: Surveys #########
+######## NOTE: Evaluations seeds #########
 User.count.times do
   @survey = Survey.new(message: Faker::Hipster.paragraph(rand(2..5)), user_id: rand(1..User.count), assessment_id: rand(1..Assessment.count))
   @survey.save
@@ -112,10 +110,19 @@ User.count.times do
   end
 end
 
-######## NOTE: Evaluations seeds #########
 
-
-######## NOTE: Responses seeds #########
 
 
 ######## NOTE: Participants seeds #########
+######## NOTE: Responses seeds #########
+Survey.all.each do |survey|
+  rand(1..10).times do |n|
+    @participant = Participant.new(relation: ["Work", "Friend", "Associate", "Family"].sample, user_id: rand(1..User.count), survey_id: survey.id)
+    @participant.save
+    if @participant.save
+      @participant.survey.assessment.questions.each do |question|
+        Response.create(participant_id: @participant.id, question_id: question.id, completion:false)
+      end
+    end
+  end
+end
