@@ -10,6 +10,9 @@
   <dd><h4><%= @survey.message %></h4></dd>
 </dl>
 
+  <%= form_for @survey do |f| %>
+    <%= render :partial => 'participants', :locals => {:f => f} %>
+  <% end %>
 
   <%= form_for @survey do |f| %>
     <%= render :partial => 'form', :locals => {:f => f} %>
